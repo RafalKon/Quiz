@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Question</title>
+
+    <link href="../static/css/bootstrap.css"
+          th:href="@{css/bootstrap.css}" rel="stylesheet" media="screen"/>
+    <link href="../static/css/bootstrap.min.css"
+          th:href="@{css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
+</head>
+<body>
+
+<form action="#" th:action="@{/test}" method="post">
+
+
+    <div class="form-group">
+        <label for="InputID">ID</label>
+        <input th:field="${question.ID}" type="text" class="form-control" id="InputID"
+               placeholder="ID"/>
+    </div>
+    <div class="form-group">
+        <label for="InputQuestion">Question</label>
+        <input th:field="${question.question}" type="text" class="form-control" id="InputQuestion"
+               placeholder="Question"/>
+    </div>
+    <div class="form-group">
+        <label for="InputAnserw1">Anserw1</label>
+        <input th:field="${question.anserw1}" type="text" class="form-control" id="InputAnserw1"
+               placeholder="Anserw1"/>
+    </div>
+    <div class="form-group">
+        <label for="InputAnserw2">Anserw2</label>
+        <input th:field="${question.anserw2}" type="text" class="form-control" id="InputAnserw2"
+               placeholder="Anserw2"/>
+    </div>
+    <div class="form-group">
+        <label for="InputAnserw3">Anserw3</label>
+        <input th:field="${question.anserw3}" type="text" class="form-control" id="InputAnserw3"
+               placeholder="Anserw3"/>
+    </div>
+
+    <div class="form-group">
+        <label for="InputCorrectAnserw">CorrectAnserw</label>
+        <input th:field="${question.correctAnserw}" type="text" class="form-control" id="InputCorrectAnserw"
+               placeholder="CorrectAnserw"/>
+    </div>
+
+
+
+    <input type="submit" value="Submit"/>
+</form>
+</body>
+</html>
