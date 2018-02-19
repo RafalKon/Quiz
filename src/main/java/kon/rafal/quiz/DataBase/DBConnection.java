@@ -6,7 +6,7 @@ public class DBConnection {
 
     private static final String USER_NAME = "root";
     private static final String PASSWORD = "root";
-    private static final String URL = "jdbc:mysql://localhost:3306/quiz";
+    private static final String URL = "jdbc:mysql://localhost:3306/quiz?autoReconnect=true&useSSL=false";
     public static Connection connection = null;
 
     public static void dbConnection() {

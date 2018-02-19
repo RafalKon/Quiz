@@ -10,4 +10,8 @@ public interface QuestionDAO {
     void addQuestion(Question question);
 
     List<Question> displayAllQuestion();
+
+    void deleteQuestion(int ID);
+
+    Question displayQuestionByID(int ID);
 }

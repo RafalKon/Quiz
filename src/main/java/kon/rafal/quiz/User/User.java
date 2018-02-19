@@ -5,8 +5,10 @@ public class User {
     private String name;
     private String surname;
     private String email;
+    private int points;
 
-
+    public User() {
+    }
 
     @Override
     public String toString() {
@@ -14,6 +16,7 @@ public class User {
                 "name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", email='" + email + '\'' +
+                ", points=" + points +
                 '}';
     }
 
@@ -41,14 +44,19 @@ public class User {
         this.email = email;
     }
 
-    public User() {
-
+    public int getPoints() {
+        return points;
     }
 
-    public User(String name, String surname, String email) {
+    public void setPoints(int points) {
+        this.points = points;
+    }
+
+    public User(String name, String surname, String email, int points) {
 
         this.name = name;
         this.surname = surname;
         this.email = email;
+        this.points = points;
     }
 }
