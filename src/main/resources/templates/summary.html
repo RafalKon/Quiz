@@ -13,11 +13,14 @@
 
 <form action="#" th:action="@{/summary}" method="post">
 
-  
+
     <p th:text="${Currentuser}"></p>
     <p th:text="${amountOfPoints}"></p>
 
 
 </form>
+
+<a th:href ="@{/result}" class="btn btn-warning btn-large">Wyświetl liste wyników</a>
+
 </body>
 </html>

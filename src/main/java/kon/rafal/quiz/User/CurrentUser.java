@@ -1,4 +1,4 @@
-package kon.rafal.quiz;
+package kon.rafal.quiz.User;
 
 import kon.rafal.quiz.Controler.UserControler;
 import kon.rafal.quiz.User.User;

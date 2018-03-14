@@ -1,13 +1,12 @@
 package kon.rafal.quiz.Controler;
 
-import com.sun.org.apache.regexp.internal.RE;
-import com.sun.org.apache.xpath.internal.operations.Mod;
-import com.sun.xml.internal.bind.v2.model.core.ID;
-import kon.rafal.quiz.CurrentUser;
+import kon.rafal.quiz.EmailService.EmailServices;
+import kon.rafal.quiz.User.CurrentUser;
 import kon.rafal.quiz.Question.Question;
 import kon.rafal.quiz.Question.QuestionDAO;
 import kon.rafal.quiz.User.User;
 import kon.rafal.quiz.User.UserDAO;
+import kon.rafal.quiz.User.UserDAOImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -25,6 +24,11 @@ public class QuestionControler {
     @Autowired
     CurrentUser currentUser;
 
+    @Autowired
+    EmailServices emailServices;
+
+    @Autowired
+    UserDAOImpl userDAOimpl;
 
     int ID = 0;
     int userCorrectAnserw = 0;
@@ -109,8 +113,24 @@ public class QuestionControler {
 
         modelMap.addAttribute("Currentuser", person);
 
+        String to = currentUser.getCurrentUser().get(0).getEmail();
+        String subject = "Rozwiązanie Quizu";
+        String text = "Uzyskałeś " + userCorrectAnserw + " punktów na " + countQuestion + " Możliwych";
+        emailServices.sendSimpleMessage(to, subject, text);
+
+        userDAOimpl.updatePoints(userCorrectAnserw, currentUser.getCurrentUser().get(0).getEmail());
 
         return "summary";
     }
+
+    @RequestMapping(value = "/result", method = RequestMethod.GET)
+    public String result(ModelMap modelMap) {
+
+
+        modelMap.addAttribute("lista", userDAO.allUsers());
+
+        return "result";
+    }
+
 
 }

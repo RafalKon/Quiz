@@ -65,7 +65,19 @@ public class UserDAOImpl implements UserDAO {
 
     }
 
+    public void updatePoints(int points, String email) {
 
+        String sql = "Update user set points = '" + points + "' where email = '" + email + "'";
+
+        DBConnection dbConnection = new DBConnection();
+        try {
+            dbConnection.dbExecuteUpdateQuery(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+    }
 
 
 }

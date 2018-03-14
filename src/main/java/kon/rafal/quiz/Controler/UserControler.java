@@ -1,6 +1,6 @@
 package kon.rafal.quiz.Controler;
 
-import kon.rafal.quiz.CurrentUser;
+import kon.rafal.quiz.User.CurrentUser;
 import kon.rafal.quiz.User.User;
 import kon.rafal.quiz.User.UserDAO;
 import org.springframework.beans.factory.annotation.Autowired;
